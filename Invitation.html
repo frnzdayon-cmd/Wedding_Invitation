@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Eunice & La Griffith</title>
+
+    <link
+        rel="stylesheet"
+        href="invitation.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         BACKGROUND MUSIC
+    ========================================== -->
+
+    <audio
+        id="weddingMusic"
+        loop
+        preload="auto"
+    >
+        <source
+            src="Coldplay - Sparks (Saxophone Cover By Ruvim Filippov).mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+
+    <!-- =========================================
+         FALLING PETALS
+    ========================================== -->
+
+    <div class="petal-container">
+
+        <img src="Flower.png" class="petal petal-1" alt="">
+        <img src="Flower.png" class="petal petal-2" alt="">
+        <img src="Flower.png" class="petal petal-3" alt="">
+        <img src="Flower.png" class="petal petal-4" alt="">
+        <img src="Flower.png" class="petal petal-5" alt="">
+        <img src="Flower.png" class="petal petal-6" alt="">
+        <img src="Flower.png" class="petal petal-7" alt="">
+        <img src="Flower.png" class="petal petal-8" alt="">
+        <img src="Flower.png" class="petal petal-9" alt="">
+        <img src="Flower.png" class="petal petal-10" alt="">
+        <img src="Flower.png" class="petal petal-11" alt="">
+        <img src="Flower.png" class="petal petal-12" alt="">
+
+    </div>
+
+
+
+    <!-- =========================================
+         INVITATION
+    ========================================== -->
+
+    <main class="invitation">
+
+        <div class="content">
+
+
+            <p class="small-title">
+                TOGETHER WITH THEIR FAMILIES
+            </p>
+
+
+
+            <h1>
+
+                EUNICE
+
+                <span>&</span>
+
+                LA GRIFFITH
+
+            </h1>
+
+
+
+            <p class="subtitle">
+                REQUEST THE HONOUR OF YOUR PRESENCE
+            </p>
+
+
+
+            <p class="message">
+
+                AS THEY BEGIN THEIR JOURNEY
+
+                <br>
+
+                TOGETHER AS ONE
+
+            </p>
+
+
+
+            <!-- DIVIDER -->
+
+            <div class="divider">
+                ♥
+            </div>
+
+
+
+            <!-- DATE -->
+
+            <div class="date">
+
+                <span>
+                    OCTOBER
+                </span>
+
+                <strong>
+                    02
+                </strong>
+
+                <span>
+                    FRIDAY
+                </span>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 CEREMONY / RECEPTION
+            ========================================== -->
+
+            <div class="venue-section">
+
+
+                <!-- TOP -->
+
+                <div class="venue-top">
+
+                    <span>
+                        CEREMONY
+                    </span>
+
+                    <span>
+                        RECEPTION
+                    </span>
+
+                </div>
+
+
+
+                <!-- ONE CONTINUOUS CENTER LINE -->
+
+                <div class="venue-line"></div>
+
+
+
+                <!-- BOTTOM -->
+
+                <div class="venue-bottom">
+
+                    <span>
+                        STO. NIÑO CHURCH MOHON
+                    </span>
+
+                    <span>
+                        GARCES ROYAL GARDEN
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- YEAR -->
+
+            <p class="time">
+                2026
+            </p>
+
+
+
+            <!-- BUTTON -->
+
+            <button
+                class="details-button"
+                onclick="showDetails()"
+            >
+
+                VIEW DETAILS
+
+            </button>
+
+
+
+            <!-- =========================================
+                 DETAILS
+            ========================================== -->
+
+            <div
+                id="details"
+                class="details"
+            >
+
+
+                <p>
+
+                    We would be delighted
+                    to celebrate this special
+                    day with you.
+
+                </p>
+
+
+
+                <p>
+
+                    Please save the date
+                    and join us as we begin
+                    this beautiful chapter.
+
+                </p>
+
+
+
+                <h2>
+                    GARCES ROYAL GARDEN
+                </h2>
+
+
+
+                <p>
+                    SAN ISIDRO RD, TALISAY
+                </p>
+
+
+
+                <!-- DRESS CODE LINE -->
+
+                <div class="dress-code">
+
+                    <div></div>
+
+                    <span>
+                        ♥ Wedding Dress Code ♥
+                    </span>
+
+                    <div></div>
+
+                </div>
+
+
+
+                <h2 class="palette-title">
+                    COLOR PALETTE
+                </h2>
+
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+        /* =========================================
+           PLAY WEDDING MUSIC
+        ========================================== */
+
+        const weddingMusic =
+            document.getElementById("weddingMusic");
+
+
+        /*
+         * Try to start the music automatically
+         * when the invitation page opens.
+         */
+
+        window.addEventListener("load", function () {
+
+            weddingMusic.volume = 0.5;
+
+            const playMusic =
+                weddingMusic.play();
+
+            if (playMusic !== undefined) {
+
+                playMusic.catch(function () {
+
+                    /*
+                     * Some browsers block autoplay.
+                     * If blocked, the first tap/click
+                     * on the invitation will start it.
+                     */
+
+                    document.addEventListener(
+                        "click",
+                        function startMusic() {
+
+                            weddingMusic.play();
+
+                            document.removeEventListener(
+                                "click",
+                                startMusic
+                            );
+
+                        },
+                        { once: true }
+                    );
+
+                });
+
+            }
+
+        });
+
+
+
+        /* =========================================
+           VIEW DETAILS
+        ========================================== */
+
+        function showDetails() {
+
+            const details =
+                document.getElementById("details");
+
+            details.classList.toggle("show");
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+```

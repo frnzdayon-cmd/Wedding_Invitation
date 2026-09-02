@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Wedding Invitation</title>
+
+    <link
+        rel="stylesheet"
+        href="style2.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         DECORATIVE BACKGROUND
+    ========================================== -->
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="floating-hearts">
+
+        <span>♡</span>
+        <span>♡</span>
+        <span>♡</span>
+        <span>♡</span>
+        <span>♡</span>
+        <span>♡</span>
+
+    </div>
+
+
+
+    <!-- =========================================
+         WEDDING INVITATION ENVELOPE
+    ========================================== -->
+
+    <div
+        class="envelope-container"
+        onclick="openEnvelope()"
+    >
+
+
+        <!-- DECORATIVE OUTER FRAME -->
+
+        <div class="envelope-frame">
+
+            <span class="corner corner-top-left"></span>
+            <span class="corner corner-top-right"></span>
+            <span class="corner corner-bottom-left"></span>
+            <span class="corner corner-bottom-right"></span>
+
+        </div>
+
+
+
+        <div class="envelope">
+
+
+            <!-- =====================================
+                 LETTER
+            ====================================== -->
+
+            <div class="letter">
+
+                <div class="letter-decoration">
+                    ✦
+                </div>
+
+                <p>
+                    WEDDING INVITATION
+                </p>
+
+                <h1>
+                    EUNICE
+                </h1>
+
+                <span class="letter-and">
+                    &
+                </span>
+
+                <h2>
+                    LA GRIFFITH
+                </h2>
+
+                <div class="letter-line"></div>
+
+                <small>
+                    OCTOBER 02 · 2026
+                </small>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 ENVELOPE FRONT
+            ====================================== -->
+
+            <div class="front"></div>
+
+
+
+            <!-- =====================================
+                 ENVELOPE FLAP
+            ====================================== -->
+
+            <div class="flap"></div>
+
+
+
+            <!-- =====================================
+                 TAP SIGN
+            ====================================== -->
+
+            <div class="tap-sign">
+
+                <span class="tap-text">
+                    TAP HERE
+                </span>
+
+                <span class="tap-heart">
+                    ♡
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+
+        let envelopeOpened = false;
+
+
+
+        function openEnvelope() {
+
+
+            /* Prevent double tapping */
+
+            if (envelopeOpened) {
+
+                return;
+
+            }
+
+
+            envelopeOpened = true;
+
+
+
+            const envelope =
+                document.querySelector(
+                    ".envelope-container"
+                );
+
+
+
+            /* =====================================
+               SAVE MUSIC PERMISSION
+            ====================================== */
+
+            sessionStorage.setItem(
+                "playWeddingMusic",
+                "true"
+            );
+
+
+
+            /* =====================================
+               OPEN ENVELOPE
+            ====================================== */
+
+            envelope.classList.add("open");
+
+
+
+            /* =====================================
+               GO TO INVITATION
+            ====================================== */
+
+            setTimeout(function () {
+
+                window.location.href =
+                    "invitation.html";
+
+            }, 1200);
+
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
